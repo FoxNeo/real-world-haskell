@@ -1,4 +1,5 @@
 -- file: ch03/Exercises.hs
+import Data.List
 
 -- Function that returns the length of a list
 listLength :: [a] -> Int
@@ -30,4 +31,7 @@ isPalindrome xs
     | otherwise = (head xs) == (last xs) 
         && isPalindrome (take ((length xs) - 2) (tail xs)) 
 
+-- Sort by length
+lengthSort xs = sortBy compareByLength xs
+                    where compareByLength a b = compare (length a) (length b)
 
